@@ -26,3 +26,9 @@ def main():
 if __name__ == "__main__":
     main()
 
+def run(rut):
+    consulta = Consulta(rut)
+    if not consulta.validate():
+        raise ValueError("RUT inválido")
+    return json.loads(consulta.resultado())
+
